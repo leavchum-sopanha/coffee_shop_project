@@ -1,0 +1,32 @@
+{% load static %}
+
+<section class="video-sec-area pb-100 pt-40" id="about">
+   <div class="container">
+      <div class="row d-flex justify-content-center align-items-center">
+         <div class="col-lg-6 video-right d-flex justify-content-center align-items-center">
+            {% for about in abouts %}
+            <div class="overlay overlay-bg"></div>
+            <a href="{{ about.video.url }}" class="play-btn">
+               <video controls style="width: 100%; height: auto;  border-radius: 20px; padding: 10px 10px 0px 10px;">
+                  <source src="{{ about.video.url }}" type="video/mp4">
+                  Your browser does not support the video tag.
+               </video>
+            </a>
+            {% endfor %}
+         </div>
+
+         <div class="col-lg-6 video-left">
+            {% for about in abouts %}
+            <h6>Live Coffee making process.</h6>
+            <h1>We Telecast our <br>
+               Coffee Making Live</h1>
+            <p><span>We are here to listen from you deliver excellence</span></p>
+            <p>
+               {{ about.short_description }} <!-- Use the short description method -->
+            </p>
+            <img class="img-fluid" src="{{ about.image.url }}" alt="">
+            {% endfor %}
+         </div>
+      </div>
+   </div>
+</section>

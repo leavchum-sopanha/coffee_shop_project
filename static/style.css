@@ -1,0 +1,63 @@
+/* Custom CSS */
+
+/* ==================== Coffee List ==================== */
+.gallery-grid {
+   column-count: 3; 
+   column-gap: 25px;
+   padding: 0;
+   width: 100%;
+}
+
+.gallery-item {
+   break-inside: avoid; 
+   display: inline-block;
+   width: 100%;
+}
+
+.gallery-item img {
+   width: 100%;
+   height: auto;
+   border-radius: 10px;
+   object-fit: cover;
+}
+
+.btn-view-details {
+   background-color: rgba(20, 2, 0, 0.8);
+   color: white;
+   margin-top: 20px;
+}
+
+.btn-view-details:hover {
+   background-color: rgba(20, 2, 0, 0.8) !important;
+   color: white !important;
+   opacity: 0.7 !important;
+   transition: 0.15s;
+}
+
+.coffee-image {
+   height: 160px;
+   object-fit: cover;
+   width: 100%;
+}
+
+.modal-image {
+   height: 250px;
+   object-fit: cover;
+   width: 100%;
+}
+
+.modal-header {
+   padding: 20px 30px;
+}
+.modal-body {
+   padding: 30px;
+}
+
+.coffee-modal-description {
+   white-space: normal;
+}
+
+.description-title {
+   color: rgba(20, 2, 0, 0.8) !important;
+   font-weight: bold;
+}

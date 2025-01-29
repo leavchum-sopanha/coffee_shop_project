@@ -1,0 +1,74 @@
+{% load static %}
+<section class="menu-area section-gap" id="coffee">
+   <div class="container">
+      <div class="row d-flex justify-content-center">
+         <div class="menu-content pb-60 col-lg-10">
+            <div class="title text-center">
+               <h1 class="mb-10">What kind of Coffee we serve for you</h1>
+               <p>Who are in extremely love with eco-friendly system.</p>
+            </div>
+         </div>
+      </div>
+      <div class="row justify-content-center">
+         {% for coffee in coffees %}
+         <div class="col-lg-4">
+            <div class="single-menu">
+               <div class="pb-30">
+                  <a href="{{ coffee.image }}" class="img-pop-home">
+                     <img class="img-fluid coffee-image rounded" src="{{ coffee.image }}" alt="Coffee Image">
+                  </a>
+               </div>
+
+               <div class="title-div justify-content-between d-flex">
+                  <h4>{{ coffee.name }}</h4>
+                  <p class="price float-right">
+                     ${{ coffee.price }}
+                  </p>
+               </div>
+
+               <!-- Truncated Plain Text Description -->
+               <p class="coffee-description">
+                  {{ coffee.description|striptags|truncatechars:80 }}
+               </p>
+
+               <!-- View Details Button -->
+               <button class="btn btn-view-details btn-block" data-bs-toggle="modal"
+                  data-bs-target="#coffeeModal{{ forloop.counter }}">
+                  View Details
+               </button>
+
+               <!-- Modal -->
+               <div class="modal fade" id="coffeeModal{{ forloop.counter }}" tabindex="-1"
+                  aria-labelledby="coffeeModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable">
+                     <div class="modal-content">
+                        <div class="modal-header align-items-center">
+                           <h3 class="modal-title" id="coffeeModalLabel">{{ coffee.name }}</h3>
+                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                           <img class="img-fluid mb-3 modal-image rounded" src="{{ coffee.image }}" alt="Coffee Image">
+                           <p class="price"><strong>Price:</strong> ${{ coffee.price }}</p>
+                           <p class="mt-10"><u class="description-title">Description:</u></p>
+                           <p class="coffee-modal-description">{{ coffee.description|safe }}</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>
+
+<style>
+   .coffee-description {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+   }
+</style>

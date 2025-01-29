@@ -1,0 +1,24 @@
+{% load static %}
+<section class="gallery-area section-gap" id="gallery">
+   <div class="container">
+      <div class="row d-flex justify-content-center">
+         <div class="menu-content pb-60 col-lg-10">
+            <div class="title text-center">
+               <h1 class="mb-10">What kind of Coffee we serve for you</h1>
+               <p>Who are in extremely love with eco-friendly system.</p>
+            </div>
+         </div>
+      </div>
+
+      <!-- Gallery Container for Masonry Layout -->
+      <div class="gallery-grid">
+         {% for gallery in galleries %}
+         <div class="gallery-item">
+            <a href="{{ gallery.image }}" class="img-pop-home">
+               <img class="img-fluid" src="{{ gallery.image }}" alt="{{ gallery.name }}">
+            </a>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>

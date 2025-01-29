@@ -1,0 +1,54 @@
+<section class="blog-area section-gap" id="blog">
+   <div class="container">
+      <div class="row d-flex justify-content-center">
+         <div class="menu-content pb-60 col-lg-10">
+            <div class="title text-center">
+               <h1 class="mb-10">What kind of Coffee we serve for you</h1>
+               <p>Who are in extremely love with eco friendly system.</p>
+            </div>
+         </div>
+      </div>
+      <div class="row justify-content-center">
+         {% for blog in blogs %}
+         <div class="col-lg-6 col-md-6 single-blog pb-15 mb-15">
+            <img class="img-fluid" src="{{ blog.image }}" alt="Blog Image">
+            <ul class="post-tags">
+               <li><a href="#" data-bs-toggle="modal" data-bs-target="#blogModal{{ forloop.counter }}">
+                     Read More
+                  </a></li>
+            </ul>
+            <h4>{{ blog.name }}</h4>
+            <p>{{ blog.description|striptags|truncatechars:100 }}</p>
+            <p class="post-date">{{ blog.date_created }}</p>
+         </div>
+
+         <!-- Modal -->
+         <div class="modal fade" id="blogModal{{ forloop.counter }}" tabindex="-1"
+            aria-labelledby="blogModalLabel{{ forloop.counter }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+               <div class="modal-content">
+                  <div class="row modal-header py-0 justify-content-center align-items-center">
+                     <div class="row pt-4">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="row justify-content-center align-items-center">
+                        <p class="modal-title d-flex justify-content-center align-items-center"
+                           id="blogModalLabel{{ forloop.counter }}">
+                           <span class="row">Blog title:</span>
+                        <h3 class="row justify-content-center align-items-center"> {{ blog.name }}</h3>
+                        </p>
+                     </div>
+
+                  </div>
+                  <div class="modal-body">
+                     <img class="img-fluid mb-3 modal-image rounded" src="{{ blog.image }}" alt="Blog Image">
+                     <p class="mt-10"><u class="description-title">Explore the Details:</u></p>
+                     <p class="blog-modal-description">{{ blog.description|safe }}</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>
