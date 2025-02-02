@@ -38,7 +38,6 @@ class CoffeeGalleryAdmin(admin.ModelAdmin):
 
    image_preview.short_description = 'Image Preview'
 
-
 class CoffeeBlogAdmin(admin.ModelAdmin):
    list_display = ["id", "name", "short_description", "image_preview", "date_created"]
    list_filter = ["date_created"]
@@ -53,7 +52,6 @@ class CoffeeBlogAdmin(admin.ModelAdmin):
       return "No Image"
 
    image_preview.short_description = 'Image Preview'
-
 
 class BlogGalleryAdmin(admin.ModelAdmin):
    list_display = ["id", "name", "image_preview", "date_created"]
@@ -83,7 +81,6 @@ class CoffeeAboutAdmin(admin.ModelAdmin):
       return "No Image"
 
    image_preview.short_description = 'Image Preview'
-
 
 class CoffeeBannerAdmin(admin.ModelAdmin):
    list_display = ["id", "description", "date_created"]
