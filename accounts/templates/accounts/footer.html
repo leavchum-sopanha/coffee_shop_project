@@ -39,7 +39,9 @@
                <p>Let us be social</p>
                <div class="footer-social d-flex align-items-center">
                   {% for socialMedia in SocialMedias %}
-                      <a href="#" class="{{socialMedia.socialMediaName}}"><i class="{{socialMedia.socialMediaURL}}"></i></a>
+                  <a href="{{ socialMedia.socialMediaURL }}" target="_blank">
+                     <i class="{{ socialMedia.socialMediaName }}"></i>
+                  </a>
                   {% endfor %}
                </div>
             </div>
